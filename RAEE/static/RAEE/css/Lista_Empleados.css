@@ -1,0 +1,43 @@
+/* Estilo base de la tabla */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1rem 0;
+  background-color: #fff;
+  color: #212121;
+  font-family: "Helvetica Neue", sans-serif;
+}
+
+/* Estilo del encabezado de tabla */
+thead {
+  background-color: #333;
+  color: #fff;
+}
+
+/* Estilo de las células de encabezado */
+th {
+  font-weight: bold;
+  padding: 0.8rem;
+}
+
+/* Estilo de las células de datos */
+td {
+  padding: 0.8rem;
+  border-bottom: 1px solid #ccc;
+  text-align: center;
+}
+
+/* Estilo para las filas impares */
+tbody tr:nth-child(odd) {
+  background-color: #f7f7f7;
+}
+
+/* Estilo para cuando se pasa el mouse sobre las filas */
+tbody tr:hover {
+  background-color: #f0f0f0;
+}
+
+/* Estilo para la fila sin datos */
+tbody tr[data-empty="true"] td {
+  text-align: center;
+}

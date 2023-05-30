@@ -1,0 +1,51 @@
+{% load static %}
+<link
+  rel="stylesheet"
+  href="{% static 'RAEE/css/Computadoras_Disponibles.css' %}"
+/>
+<h1>Lista de Computadoras Disponibles</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Serial</th>
+      <th>Modelo</th>
+      <th>Tipo de Disco</th>
+      <th>Capacidad de Disco</th>
+      <th>Tipo de RAM</th>
+      <th>Memoria 1 RAM</th>
+      <th>Memoria 2 RAM</th>
+      <th>Procesador</th>
+      <th>Actualizada</th>
+      <th>Asignada</th>
+      <th>Fecha Asignación</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for computadora in computadoras %} {% if computadora.asignado == False %}
+
+    <tr>
+      <td>
+        <a href="{% url 'editar_computadora' computadora.id %}"
+          >{{ computadora.serial }}</a
+        >
+      </td>
+      <td>{{ computadora.modelo }}</td>
+      <td>{{ computadora.tipo_disco }}</td>
+      <td>{{ computadora.capacidad_disco }}</td>
+      <td>{{ computadora.tipo_ram }}</td>
+      <td>{{ computadora.memoria1_ram }}</td>
+      <td>{{ computadora.memoria2_ram }}</td>
+      <td>{{ computadora.procesador }}</td>
+      <td>{{ computadora.actualizada }}</td>
+      <td>{{ computadora.empleado_asignado }}</td>
+      <td>{{ computadora.fecha_asignacion }}</td>
+    </tr>
+
+    {% endif %} {% empty %}
+    <tr>
+      <td colspan="9">No hay computadoras disponibles</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>

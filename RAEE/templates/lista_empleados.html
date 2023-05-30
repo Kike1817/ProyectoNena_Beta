@@ -1,0 +1,35 @@
+{% extends 'base.html' %} {% block content %} {% load static %}
+<link rel="stylesheet" href="{% static 'RAEE/css/Lista_Empleados.css' %}" />
+<h1>Lista de Empleados</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Código de Nómina</th>
+      <th>Nombre</th>
+      <th>Apellido</th>
+      <th>Departamento</th>
+      <th>Cargo</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for empleado in empleados %}
+    <tr>
+      <td>
+        <a href="{% url 'editar_empleado' empleado.id %}"
+          >{{ empleado.cod_nomina }}</a
+        >
+      </td>
+      <td>{{ empleado.nombre }}</td>
+      <td>{{ empleado.apellido }}</td>
+      <td>{{ empleado.get_departamento_display }}</td>
+      <td>{{ empleado.get_cargo_display }}</td>
+    </tr>
+
+    {% empty %}
+    <tr>
+      <td colspan="5">No hay empleados registrados.</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

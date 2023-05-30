@@ -1,0 +1,23 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<link rel="stylesheet" href="{% static 'RAEE/css/Editar_Empleado.css' %}" />
+
+<h1>Eliminar o Modificar, Empleado</h1>
+<div></div>
+{{error}}
+<div></div>
+
+<form method="POST">
+  {% csrf_token %} {{form.as_p}}
+  <button>Modificar</button>
+</form>
+
+<form
+  action="{% url 'eliminar_empleado' empleado.id %}"
+  method="POST"
+  class="form-eliminar"
+>
+  {% csrf_token %}
+  <button>eliminar</button>
+</form>
+
+{% endblock %}

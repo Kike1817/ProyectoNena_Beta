@@ -1,0 +1,21 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'RAEE/css/Editar_Computadora.css' %}"
+/>
+<h1>Eliminar o Modificar, Computadora</h1>
+<div></div>
+{{error}}
+<div></div>
+
+<form method="POST">
+  {% csrf_token %} {{form.as_p}}
+  <button>Modificar</button>
+</form>
+
+<form action="{% url 'eliminar_computadora' computadora.id %}" method="POST">
+  {% csrf_token %}
+  <button class="btn-danger">Eliminar</button>
+</form>
+{% endblock %}
